@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <web3j.vesion>4.8.5</web3j.vesion>
+        <web3j.vesion>4.8.7</web3j.vesion>
         <web3j.build.classes.plugin>4.8.7</web3j.build.classes.plugin>
         <junit.vesion>4.13.2</junit.vesion>
     </properties>
