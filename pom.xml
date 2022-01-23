@@ -11,6 +11,57 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <web3j.vesion>4.8.5</web3j.vesion>
+        <web3j.build.classes.plugin>4.8.7</web3j.build.classes.plugin>
+        <junit.vesion>4.13.2</junit.vesion>
     </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.web3j/core -->
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>core</artifactId>
+            <version>${web3j.vesion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.vesion}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.web3j</groupId>
+                <artifactId>web3j-maven-plugin</artifactId>
+                <version>${web3j.build.classes.plugin}</version>
+                <configuration>
+                    <packageName>com.argyriou.contracts</packageName>
+                    <nativeJavaType>true</nativeJavaType>
+                    <outputFormat>java,bin,abi</outputFormat>
+                    <soliditySourceFiles>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.sol</include>
+                        </includes>
+                    </soliditySourceFiles>
+                    <outputDirectory>
+                        <java>src/main/java/</java>
+<!--                        <bin>src/main/resources</bin>-->
+<!--                        <abi>src/main/resources</abi>-->
+                    </outputDirectory>
+                    <contract>
+                        <includes>
+                            <include>Owner</include>
+                        </includes>
+                    </contract>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
